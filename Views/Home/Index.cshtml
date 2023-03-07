@@ -3,29 +3,23 @@
 
 @model BooksViewModel
 
+<!--I embedded a video with bootstrap on this page, and also changed the default grey striped table to blue-->
 <br /><h1>The Bookstore</h1> <br />
+
+  <div class="col-sm-6">
+    <h5>Why should you read books? </h5>
+    <div class="embed-responsive embed-responsive-16by9">
+      <iframe class="embed-responsive-item" src="//www.youtube.com/embed/pRTWFqhEDeo"></iframe>
+    </div>
+  </div>
+
+<h1>______</h1><br />
 
 @foreach (Book b in Model.Books)
 {
-    <div class="card card-outline-primary m-1 p-1">
-        <div class="bg-faded p-1">
-            <h4>
-                @b.Title
-            </h4>
-        </div>
-
-            <ul>
-                <li>Author: @b.Author</li>
-                <li>Publisher: @b.Publisher</li>
-                <li>Isbn: @b.Isbn</li>
-                <li>Classification: @b.Classification</li>
-                <li>Category: @b.Category</li>
-                <li>Page Count: @b.PageCount pages</li>
-                <li>Price: $@b.Price</li>
-            </ul>
-    </div>
-    <br />
+    <partial name="StoreSummary" model="b" />         
 }
+
 <div page-blah="@Model.PageInfo" page-action="Index" page-classes-enabled="true"
      page-class="btn" page-class-normal="btn-outline-dark"
      page-class-selected="btn-primary" class="btn-group pull-right m-1">
