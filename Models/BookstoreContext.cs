@@ -20,6 +20,6 @@ namespace Mission9Project.Models
         }
 
         public DbSet<Book> Books { get; set; }
-
+        public DbSet<Purchase> Purchase { get; set; }
     }
 }
